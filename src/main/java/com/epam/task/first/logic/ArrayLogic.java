@@ -1,13 +1,13 @@
 package com.epam.task.first.logic;
 
 import com.epam.task.first.entity.Array;
-import com.epam.task.first.util.PredicateInterface;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 public class ArrayLogic {
 
-    private List<Integer> getElements(Array array) {
+    private void checkArray(final Array array) {
         if (array == null) {
             throw new IllegalArgumentException("Array argument mustn't be null");
         }
@@ -17,12 +17,12 @@ public class ArrayLogic {
         if (elements.size() == 0) {
             throw new IllegalArgumentException("Array argument mustn't be empty");
         }
-
-        return elements;
     }
 
     public int findMin(final Array array) {
-        List<Integer> elements = getElements(array);
+        checkArray(array);
+
+        List<Integer> elements = array.getElements();
 
         int min = elements.get(0);
 
@@ -36,7 +36,9 @@ public class ArrayLogic {
     }
 
     public int findMax(final Array array) {
-        List<Integer> elements = getElements(array);
+        checkArray(array);
+
+        List<Integer> elements = array.getElements();
 
         int max = elements.get(0);
 
@@ -49,20 +51,24 @@ public class ArrayLogic {
         return max;
     }
 
-    public void replaceByPredicate(Array array, PredicateInterface predicate, int replaceWith) {
-        List<Integer> elements = getElements(array);
+    public void replaceByPredicate(Array array, Predicate<Integer> predicate, int replaceWith) {
+        checkArray(array);
+
+        List<Integer> elements = array.getElements();
 
         for (int i = 0; i < elements.size(); i++) {
             Integer element = elements.get(i);
 
-            if (predicate.check(element)) {
+            if (predicate.test(element)) {
                 elements.set(i, replaceWith);
             }
         }
     }
 
     public int getSum(final Array array) {
-        List<Integer> elements = getElements(array);
+        checkArray(array);
+
+        List<Integer> elements = array.getElements();
 
         int sum = 0;
 
@@ -74,14 +80,18 @@ public class ArrayLogic {
     }
 
     public double getAverage(final Array array) {
-        List<Integer> elements = getElements(array);
+        checkArray(array);
+
+        List<Integer> elements = array.getElements();
 
         double sum = getSum(array);
         return sum / elements.size();
     }
 
     public int getNumberOfNegatives(final Array array) {
-        List<Integer> elements = getElements(array);
+        checkArray(array);
+
+        List<Integer> elements = array.getElements();
 
         int counter = 0;
 
@@ -95,7 +105,9 @@ public class ArrayLogic {
     }
 
     public int getNumberOfPositives(final Array array) {
-        List<Integer> elements = getElements(array);
+        checkArray(array);
+
+        List<Integer> elements = array.getElements();
 
         int counter = 0;
 

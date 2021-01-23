@@ -1,9 +1,10 @@
 package com.epam.task.first.logic;
 
 import com.epam.task.first.entity.Array;
-import com.epam.task.first.util.PredicateInterface;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.function.Predicate;
 
 public class ArrayLogicTest {
 
@@ -11,141 +12,141 @@ public class ArrayLogicTest {
 
     private final ArrayLogic arrayLogic = new ArrayLogic();
 
-    private final Array arrayOfNegatives = new Array(-7, -8, -5);
-    private final Array arrayOfPositives = new Array( 3,  2,  5);
-    private final Array mixedArray       = new Array( 0, -1,  3, -2);
+    private static final Array NEGATIVE_ARRAY = new Array(-7, -8, -5);
+    private static final Array POSITIVE_ARRAY = new Array( 3,  2,  5);
+    private static final Array MIXED_ARRAY    = new Array( 0, -1,  3, -2);
 
     @Test
-    public void testFindMinShouldFindMinWhenNegativesApplied() {
-        int result = arrayLogic.findMin(arrayOfNegatives);
+    public void testFindMinShouldFindMinWhenNegativeApplied() {
+        int result = arrayLogic.findMin(NEGATIVE_ARRAY);
 
         Assert.assertEquals(-8, result);
     }
 
     @Test
-    public void testFindMinShouldFindMinWhenPositivesApplied() {
-        int result = arrayLogic.findMin(arrayOfPositives);
+    public void testFindMinShouldFindMinWhenPositiveApplied() {
+        int result = arrayLogic.findMin(POSITIVE_ARRAY);
 
         Assert.assertEquals(2, result);
     }
 
     @Test
     public void testFindMinShouldFindMinWhenMixedApplied() {
-        int result = arrayLogic.findMin(mixedArray);
+        int result = arrayLogic.findMin(MIXED_ARRAY);
 
         Assert.assertEquals(-2, result);
     }
 
     @Test
-    public void testFindMaxShouldFindMaxWhenNegativesApplied() {
-        int result = arrayLogic.findMax(arrayOfNegatives);
+    public void testFindMaxShouldFindMaxWhenNegativeApplied() {
+        int result = arrayLogic.findMax(NEGATIVE_ARRAY);
 
         Assert.assertEquals(-5, result);
     }
 
     @Test
-    public void testFindMaxShouldFindMaxWhenPositivesApplied() {
-        int result = arrayLogic.findMax(arrayOfPositives);
+    public void testFindMaxShouldFindMaxWhenPositiveApplied() {
+        int result = arrayLogic.findMax(POSITIVE_ARRAY);
 
         Assert.assertEquals(5, result);
     }
 
     @Test
     public void testFindMaxShouldFindMaxWhenMixedApplied() {
-        int result = arrayLogic.findMax(mixedArray);
+        int result = arrayLogic.findMax(MIXED_ARRAY);
 
         Assert.assertEquals(3, result);
     }
 
     @Test
-    public void testGetSumValueShouldGetSumWhenNegativesApplied() {
-        int result = arrayLogic.getSum(arrayOfNegatives);
+    public void testGetSumValueShouldGetSumWhenNegativeApplied() {
+        int result = arrayLogic.getSum(NEGATIVE_ARRAY);
 
         Assert.assertEquals(-20, result);
     }
 
     @Test
     public void testGetSumValueShouldGetSumWhenPositiveApplied() {
-        int result = arrayLogic.getSum(arrayOfPositives);
+        int result = arrayLogic.getSum(POSITIVE_ARRAY);
 
         Assert.assertEquals(10, result);
     }
 
     @Test
     public void testGetSumValueShouldGetSumWhenMixedApplied() {
-        int result = arrayLogic.getSum(mixedArray);
+        int result = arrayLogic.getSum(MIXED_ARRAY);
 
         Assert.assertEquals(0, result);
     }
 
     @Test
-    public void testGetAverageValueShouldGetAverageWhenNegativesApplied() {
-        double result = arrayLogic.getAverage(arrayOfNegatives);
+    public void testGetAverageValueShouldGetAverageWhenNegativeApplied() {
+        double result = arrayLogic.getAverage(NEGATIVE_ARRAY);
 
         Assert.assertEquals(-6.667, result, DELTA);
     }
 
     @Test
-    public void testGetAverageValueShouldGetAverageWhenPositivesApplied() {
-        double result = arrayLogic.getAverage(arrayOfPositives);
+    public void testGetAverageValueShouldGetAverageWhenPositiveApplied() {
+        double result = arrayLogic.getAverage(POSITIVE_ARRAY);
 
         Assert.assertEquals(3.333, result, DELTA);
     }
 
     @Test
     public void testGetAverageValueShouldGetAverageWhenMixedApplied() {
-        double result = arrayLogic.getAverage(mixedArray);
+        double result = arrayLogic.getAverage(MIXED_ARRAY);
 
         Assert.assertEquals(0, result, DELTA);
     }
 
     @Test
-    public void testGetNumberOfNegativesShouldGetNumberOfNegativesWhenNegativesApplied() {
-        int result = arrayLogic.getNumberOfNegatives(arrayOfNegatives);
+    public void testGetNumberOfNegativesShouldGetNumberOfNegativesWhenNegativeApplied() {
+        int result = arrayLogic.getNumberOfNegatives(NEGATIVE_ARRAY);
 
         Assert.assertEquals(3, result);
     }
 
     @Test
-    public void testGetNumberOfNegativesShouldGetNumberOfNegativesWhenPositivesApplied() {
-        int result = arrayLogic.getNumberOfNegatives(arrayOfPositives);
+    public void testGetNumberOfNegativesShouldGetNumberOfNegativesWhenPositiveApplied() {
+        int result = arrayLogic.getNumberOfNegatives(POSITIVE_ARRAY);
 
         Assert.assertEquals(0, result);
     }
 
     @Test
     public void testGetNumberOfNegativesShouldGetNumberOfNegativesWhenMixedApplied() {
-        int result = arrayLogic.getNumberOfNegatives(mixedArray);
+        int result = arrayLogic.getNumberOfNegatives(MIXED_ARRAY);
 
         Assert.assertEquals(2, result);
     }
 
     @Test
-    public void testGetNumberOfPositivesShouldGetNumberOfPositivesWhenNegativesApplied() {
-        int result = arrayLogic.getNumberOfPositives(arrayOfNegatives);
+    public void testGetNumberOfPositivesShouldGetNumberOfPositivesWhenNegativeApplied() {
+        int result = arrayLogic.getNumberOfPositives(NEGATIVE_ARRAY);
 
         Assert.assertEquals(0, result);
     }
 
     @Test
-    public void testGetNumberOfPositivesShouldGetNumberOfPositivesWhenPositivesApplied() {
-        int result = arrayLogic.getNumberOfPositives(arrayOfPositives);
+    public void testGetNumberOfPositivesShouldGetNumberOfPositivesWhenPositiveApplied() {
+        int result = arrayLogic.getNumberOfPositives(POSITIVE_ARRAY);
 
         Assert.assertEquals(3, result);
     }
 
     @Test
     public void testGetNumberOfPositivesShouldGetNumberOfPositivesWhenMixedApplied() {
-        int result = arrayLogic.getNumberOfPositives(mixedArray);
+        int result = arrayLogic.getNumberOfPositives(MIXED_ARRAY);
 
         Assert.assertEquals(1, result);
     }
 
     @Test
     public void testReplaceByPredicateShouldReplaceAllPositives() {
-        PredicateInterface predicate = new PredicateInterface() {
+        Predicate<Integer> predicate = new Predicate<>() {
             @Override
-            public boolean check(Integer value) {
+            public boolean test(Integer value) {
                 return value > 0;
             }
         };
@@ -160,9 +161,9 @@ public class ArrayLogicTest {
 
     @Test
     public void testReplaceByPredicateShouldReplaceAllZeros() {
-        PredicateInterface predicate = new PredicateInterface() {
+        Predicate<Integer> predicate = new Predicate<>() {
             @Override
-            public boolean check(Integer value) {
+            public boolean test(Integer value) {
                 return value == 0;
             }
         };
