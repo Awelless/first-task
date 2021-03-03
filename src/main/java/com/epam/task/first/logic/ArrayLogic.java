@@ -2,6 +2,7 @@ package com.epam.task.first.logic;
 
 import com.epam.task.first.entity.Array;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -51,18 +52,22 @@ public class ArrayLogic {
         return max;
     }
 
-    public void replaceByPredicate(Array array, Predicate<Integer> predicate, int replaceWith) {
+    public Array replaceByPredicate(final Array array, Predicate<Integer> predicate, int replaceWith) {
         checkArray(array);
 
         List<Integer> elements = array.getElements();
+        List<Integer> newElements = new ArrayList<>();
 
-        for (int i = 0; i < elements.size(); i++) {
-            Integer element = elements.get(i);
+        for (Integer element : elements) {
 
             if (predicate.test(element)) {
-                elements.set(i, replaceWith);
+                newElements.add(replaceWith);
+            } else {
+                newElements.add(element);
             }
         }
+
+        return new Array(newElements);
     }
 
     public int getSum(final Array array) {

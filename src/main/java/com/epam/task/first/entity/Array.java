@@ -43,4 +43,9 @@ public class Array {
     public int hashCode() {
         return elements.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return elements.toString();
+    }
 }

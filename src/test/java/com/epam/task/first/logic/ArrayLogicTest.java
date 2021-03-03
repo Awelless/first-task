@@ -154,7 +154,7 @@ public class ArrayLogicTest {
         Array array    = new Array( 5, 10, 0, 0,  4, 0);
         Array expected = new Array(-1, -1, 0, 0, -1, 0);
 
-        arrayLogic.replaceByPredicate(array, predicate, -1);
+        array = arrayLogic.replaceByPredicate(array, predicate, -1);
 
         Assert.assertEquals(expected, array);
     }
@@ -171,7 +171,7 @@ public class ArrayLogicTest {
         Array array    = new Array(5, 10,  0,  0, 4,  0);
         Array expected = new Array(5, 10, -1, -1, 4, -1);
 
-        arrayLogic.replaceByPredicate(array, predicate, -1);
+        array = arrayLogic.replaceByPredicate(array, predicate, -1);
 
         Assert.assertEquals(expected, array);
     }
